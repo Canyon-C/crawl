@@ -8,7 +8,7 @@ import os
 
 
 crawl_mm = metamodel_from_file('crawl.tx')
-crawl_model = crawl_mm.model_from_file('real.ws')
+crawl_model = crawl_mm.model_from_file('program3.ws')
 
 class Crawler:
     def __init__(self):
@@ -102,7 +102,7 @@ class Crawler:
                 if collection != None:
                     for index in range(statement.start, len(collection)):
                         self.variables[statement.varName] = index
-                        nested_model = NestedModel(statement.statements)       
+                        nested_model = Nested(statements=statement.statements)       
                         self.interpret(nested_model)
                         
                     self.variables[statement.varName] = None
@@ -114,13 +114,13 @@ class Crawler:
                 if operator == "contains":
                         condition_met = right in left
                 if condition_met:
-                    nested_model = NestedModel(statements=statement.statements)
+                    nested_model = Nested(statements=statement.statements)
                     self.interpret(nested_model)        
 
             else:
                 print(f"Unhandled statement type: {statement.__class__.__name__}")
 
-class NestedModel:
+class Nested:
     def __init__(self, statements):
         self.statements = statements 
 crawler = Crawler()

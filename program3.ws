@@ -1,3 +1,5 @@
+var url = "https://www.canyonc.dev";
+var crawler = SCRAPE url;
 var textElem = GET "Projects" IN crawler;
 print(textElem);
 
