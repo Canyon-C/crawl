@@ -1,0 +1,101 @@
+Model:
+    statements*=Statement
+;
+
+Statement:
+    VarDeclaration
+    | Assignment
+    | ScrapeStatement
+    | FindStatement
+    | FilterStatement
+    | ExportStatement
+    | PrintStatement
+    | LoopStatement
+    | IfStatement
+    | GetStatement
+;
+
+VarDeclaration:
+    'var' name=ID ('=' value=Expression)? ';'
+;
+
+
+
+Assignment:
+    name=ID '=' value=Expression ';'
+;
+
+ScrapeStatement:
+    'var' name=ID '=' 'SCRAPE' url=URLS ('PATH' path=STRING)?';'
+;
+
+URLS: 
+    STRING | ID
+;
+
+FindStatement:
+    'var' name=ID '=' 'FIND' elementType=element 'IN' source=ID ('WITHTEXT' text=STRING)? ('WITHCLASS' inline=STRING)?';'
+;
+
+
+element:
+ ID | STRING
+;
+
+FilterStatement:
+    'var' name=ID '=' 'FILTER' filterType=TYPE 'IN' source=ID ';'
+;
+
+TYPE:
+    ID | STRING
+;
+
+ExportStatement:
+    'export(' data=ID ',' filename=STRING ');'
+;
+
+PrintStatement:
+    'print(' log=printValue ');'
+;
+
+printValue:
+    ID | STRING
+;
+
+LoopStatement:
+    'for' '(' 'var' varName=ID 'IN' start=INT ':' source=ID ')' '{' statements+=Statement* '}'
+;
+
+IfStatement:
+    'if' '(' condition=Condition ')' '{' statements+=Statement* '}'
+;
+
+GetStatement:
+    'var' name=ID '=' 'GET' text=TEXT 'IN' source=ID ';'
+;
+
+TEXT:
+    STRING | ID
+;
+
+Condition:
+    left=ID '.' operator=ConditionOperator '(' right=STRING ')'
+;
+
+ConditionOperator:
+    'contains'
+;
+
+Expression:
+    STRING | INT | List
+;
+
+List:
+    '[' elements+=STRING[','] ']'
+;
+
+Comment:
+    /\/\/[^\n]*/
+;
+
+

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Crawl</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="background">
+    <h1>Crawl</h1>
+    <p>A domain speficic programming language based on web scraping</p>
+    <div>
+        <a class="link" href="http://github.com/Canyon-C">More on Github</a>
+    </div>
+    <h3>Try it yourself</h3>
+    <pre class="code">
+        <span class="keyword">var</span> <span class="variable">url</span> = <span class="string">"https://lhartikk.github.io/ArnoldC/"</span>;
+        <span class="keyword">var</span> <span class="variable">crawler</span> = <span class="function">SCRAPE</span> <span class="variable">url</span>;
+        <span class="function">export</span>(<span class="variable">crawler</span>, <span class="string">"site.html"</span>);
+    </pre>
+    <p>Stop copying and start Scraping!</p>
+</body>
+<style>
+
+
+    .background {
+        background-color: black;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Poppins', sans-serif;
+    }
+    .link {
+        text-decoration: none;
+        color: red;
+        border-bottom: 2px solid red;
+    }
+    .code {
+    padding: 1em;
+    line-height: 1.5;
+    border-radius: 5px; 
+    }
+
+    .keyword {
+        color: #569cd6;
+    }
+
+    .variable {
+        color: #9cdcfe;
+    }
+
+    .string {
+        color: #ce9178;
+    }
+
+    .function {
+        color: #c586c0;
+    }
+</style>
+</html>
