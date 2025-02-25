@@ -1,8 +1,8 @@
-# crawl
+# Crawl
 Crawl is an abstract grammar-based language designed to simplify web scraping, data management, viewing, and sorting for both experienced and novice developers.
 
 # Interpreter
---> interpretCrawl.py
+[`Crawl Interpreter`](./interpretCrawl.py)
 
 ## Example Program 1:
 <img width="646" alt="image" src="https://github.com/user-attachments/assets/7620e0a0-3b2d-427b-bf68-435af0a37a33" />
